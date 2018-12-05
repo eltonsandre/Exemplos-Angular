@@ -1,0 +1,21 @@
+<div class="ui-g-12 ui-fluid">
+  <mat-form-field style="margin-right: 15px;">
+    <mat-select name="estado" placeholder="Estado" [(value)]="estado" (selectionChange)="carregarCidades(estado)">
+      <mat-option *ngFor="let e of estados" [value]="e">
+        {{ e.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select name="cidade" placeholder="Cidade" [(value)]="cidade">
+      <mat-option *ngFor="let cidade of cidades" [value]="cidade">
+        {{ cidade.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div *ngIf="cidade">
+  <b>Cidade Selecionada:</b>
+  {{ cidade?.nome }} - {{ estado?.sigla }}
+</div>
